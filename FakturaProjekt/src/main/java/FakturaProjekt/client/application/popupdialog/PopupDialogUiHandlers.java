@@ -4,5 +4,5 @@ import com.gwtplatform.mvp.client.UiHandlers;
 
 interface PopupDialogUiHandlers extends UiHandlers {
 	void PopupDialog();
-}
 
+}

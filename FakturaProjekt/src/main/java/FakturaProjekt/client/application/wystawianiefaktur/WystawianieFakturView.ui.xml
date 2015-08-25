@@ -3,9 +3,13 @@
              xmlns:g="urn:import:com.google.gwt.user.client.ui">
              
              <g:HTMLPanel>
-             
+
              <h1><center>Wystawienie Faktury</center></h1>
-             <center><g:Button ui:field="pozycja" text="Pozycja"   /></center>
+             <center> <g:Label text="Nr faktury" /> </center>
+             <center> <g:TextBox ui:field="nrFaktury"  /> </center>
+             <center> <g:Button ui:field="generator" text="Generator Nr faktury" /> </center>
+             <center><g:Button ui:field="pozycja" text="Pozycja"/></center>
+             <center><g:Button  ui:field="pozycja2" text="Pozycja2"   /></center>
              
              </g:HTMLPanel>
     

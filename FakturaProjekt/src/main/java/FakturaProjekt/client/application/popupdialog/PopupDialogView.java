@@ -6,8 +6,10 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.PopupViewWithUiHandlers;
@@ -17,8 +19,20 @@ class PopupDialogView extends PopupViewWithUiHandlers<PopupDialogUiHandlers> imp
     }
 
     @UiField Button zatwierdz;
+    @UiField TextBox imie;
+    @UiField TextBox cennaJednostki;
+    @UiField TextBox ilosc;
     
-    public Button getZatwierdz() {
+    public TextBox getImie() {
+		return imie;
+	}
+	public TextBox getCennaJednostki() {
+		return cennaJednostki;
+	}
+	public TextBox getIlosc() {
+		return ilosc;
+	}
+	public Button getZatwierdz() {
 		return zatwierdz;
 	}
 	@Inject
@@ -31,4 +45,9 @@ class PopupDialogView extends PopupViewWithUiHandlers<PopupDialogUiHandlers> imp
 	public void onClick(ClickEvent event) {
 		getUiHandlers().PopupDialog();
 	}
+
+
+	
+	
+	
 }
