@@ -20,8 +20,6 @@ class WystawianieFakturView extends ViewImpl implements WystawianieFakturPresent
 	interface Binder extends UiBinder<Widget, WystawianieFakturView> {
 	}
 
-	@UiField
-	Button pozycja ;
 	@UiField 
 	TextBox nrFaktury;
 	@UiField
@@ -58,9 +56,6 @@ class WystawianieFakturView extends ViewImpl implements WystawianieFakturPresent
 		return nrFaktury;
 	}
 
-	public Button getPozycja() {
-		return pozycja;
-	}
 	@Inject
 	WystawianieFakturView(Binder uiBinder,	PlaceManager placeManager) {
 		initWidget(uiBinder.createAndBindUi(this));

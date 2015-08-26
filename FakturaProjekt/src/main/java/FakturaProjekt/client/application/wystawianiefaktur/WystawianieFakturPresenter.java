@@ -17,16 +17,13 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.proxy.RevealContentHandler;
 import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
-import FakturaProjekt.client.application.popupdialog.PopupDialogPresenter;
 import FakturaProjekt.client.place.NameTokens;
 public class WystawianieFakturPresenter extends Presenter<WystawianieFakturPresenter.MyView, WystawianieFakturPresenter.MyProxy>   {
     
-	@Inject PopupDialogPresenter presenter;
 	PlaceManager placeManager;
 	
 	interface MyView extends View  {
     	
-    	public Button getPozycja();
     	public TextBox getNrFaktury();
     	public Button getGenerator();
     	public void liczby();
@@ -53,17 +50,8 @@ public class WystawianieFakturPresenter extends Presenter<WystawianieFakturPrese
     protected void onBind() {
         super.onBind();
         getView().getNrFaktury().setReadOnly(true);
-        
         getView().getNrFaktury().setText("0");
         getView().liczby();
-        
-        getView().getPozycja().addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				addToPopupSlot(presenter);
-			}
-		});
-        
         getView().wyswietl();
     }
 }
