@@ -2,6 +2,7 @@ package FakturaProjekt.client.application.pozycjafaktury;
 
 import com.google.gwt.event.shared.GwtEvent.Type;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
     import com.gwtplatform.mvp.client.Presenter;
@@ -19,6 +20,10 @@ public class PozycjaFakturyPresenter extends Presenter<PozycjaFakturyPresenter.M
     	
     	public Button getPowrot();
     	public void powrod();
+    	public TextBox getImie();
+    	public TextBox getCennaJednostki();
+    	public TextBox getIlosc();
+    	 
     }
     @ContentSlot
     public static final Type<RevealContentHandler<?>> SLOT_PozycjaFaktury = new Type<RevealContentHandler<?>>();
@@ -40,7 +45,6 @@ public class PozycjaFakturyPresenter extends Presenter<PozycjaFakturyPresenter.M
     }
     @Override
     protected void onBind() {
-    	super.onBind();
     	getView().powrod();
     }
 }

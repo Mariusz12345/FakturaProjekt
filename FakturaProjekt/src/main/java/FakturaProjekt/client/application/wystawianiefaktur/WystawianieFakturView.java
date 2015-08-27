@@ -6,7 +6,8 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.cellview.client.DataGrid;
+import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -26,12 +27,49 @@ class WystawianieFakturView extends ViewImpl implements WystawianieFakturPresent
 	Button generator;
 	@UiField
 	Button pozycja2;
+	@UiField
+	DataGrid<Pozycja> pozycje;
+	
+	@Inject
+	void PokazDataGrid(Binder uiBinder) {
+		initWidget(uiBinder.createAndBindUi(this));
+
+		TextColumn<Pozycja> nazwa = new TextColumn<Pozycja>() {
+
+			@Override
+			public String getValue(Pozycja pozycja) {
+				return pozycja.getNazwa();
+			}
+		};
+		TextColumn<Pozycja> cenna = new TextColumn<Pozycja>() {
+
+			@Override
+			public String getValue(Pozycja pozycja) {
+				return pozycja.getCennaJednostki();
+			}
+		};
+		TextColumn<Pozycja> ilosc = new TextColumn<Pozycja>() {
+
+			@Override
+			public String getValue(Pozycja pozycja) {
+				return pozycja.getIlosc();
+			}
+		};
+
+		pozycje.addColumn(nazwa, "Nazwa");
+		pozycje.addColumn(cenna, "Cenna Jednostki");
+		pozycje.addColumn(ilosc, "Ilosci");
+	}
+	
 	
 
-	
-	
+	public DataGrid<Pozycja> getPozycje() {
+		return pozycje;
+	}
 
-
+	public void setPozycje(DataGrid<Pozycja> pozycje) {
+		this.pozycje = pozycje;
+	}
 	PlaceManager placeManager;
 	
 	public Button getPozycja2() {
@@ -81,6 +119,14 @@ class WystawianieFakturView extends ViewImpl implements WystawianieFakturPresent
 			}
 		});
 		
+	}
+
+
+
+	@Override
+	public void wyswietlFakture() {
+		getPozycje().setWidth("400px");
+		getPozycje().setHeight("100px");		
 	}
 
 	

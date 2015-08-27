@@ -1,6 +1,12 @@
 package FakturaProjekt.client.place;
 
 public class NameTokens {
+	public static final String nowy = "nowy";
+
+	public static final String przeslij = "przeslij";
+
+	public static final String wypis = "wypis";
+
 	public static final String event = "event";
 
 	public static final String presenter2 = "presenter2";
@@ -47,6 +53,18 @@ public class NameTokens {
 
 	public static String getEvent() {
 		return event;
+	}
+
+	public static String getWypis() {
+		return wypis;
+	}
+
+	public static String getPrzeslij() {
+		return przeslij;
+	}
+
+	public static String getNowy() {
+		return nowy;
 	}
 
 }

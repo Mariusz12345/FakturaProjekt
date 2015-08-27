@@ -1,9 +1,7 @@
 package FakturaProjekt.client.application.wystawianiefaktur;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.GwtEvent.Type;
-import com.google.gwt.place.shared.Place;
+import com.google.gwt.user.cellview.client.DataGrid;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.inject.Inject;
@@ -16,7 +14,6 @@ import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.proxy.RevealContentHandler;
-import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 import FakturaProjekt.client.place.NameTokens;
 public class WystawianieFakturPresenter extends Presenter<WystawianieFakturPresenter.MyView, WystawianieFakturPresenter.MyProxy>   {
     
@@ -29,6 +26,8 @@ public class WystawianieFakturPresenter extends Presenter<WystawianieFakturPrese
     	public void liczby();
     	public Button getPozycja2();
     	public void wyswietl();
+    	public DataGrid<Pozycja> getPozycje();
+		public void wyswietlFakture();
     }
     @ContentSlot
     public static final Type<RevealContentHandler<?>> SLOT_WystawianieFaktur = new Type<RevealContentHandler<?>>();
@@ -37,6 +36,7 @@ public class WystawianieFakturPresenter extends Presenter<WystawianieFakturPrese
     @ProxyStandard
     interface MyProxy extends ProxyPlace<WystawianieFakturPresenter> {
     }
+
 
     @Inject
     WystawianieFakturPresenter(
@@ -47,8 +47,11 @@ public class WystawianieFakturPresenter extends Presenter<WystawianieFakturPrese
         super(eventBus, view, proxy, RevealType.Root);
         this.placeManager= placeManager;
     }
+    	
+    
     protected void onBind() {
         super.onBind();
+        getView().wyswietlFakture();
         getView().getNrFaktury().setReadOnly(true);
         getView().getNrFaktury().setText("0");
         getView().liczby();
