@@ -36,8 +36,6 @@ public class WystawianieFakturPresenter extends Presenter<WystawianieFakturPrese
     @ProxyStandard
     interface MyProxy extends ProxyPlace<WystawianieFakturPresenter> {
     }
-
-
     @Inject
     WystawianieFakturPresenter(
             EventBus eventBus,
@@ -47,8 +45,6 @@ public class WystawianieFakturPresenter extends Presenter<WystawianieFakturPrese
         super(eventBus, view, proxy, RevealType.Root);
         this.placeManager= placeManager;
     }
-    	
-    
     protected void onBind() {
         super.onBind();
         getView().wyswietlFakture();

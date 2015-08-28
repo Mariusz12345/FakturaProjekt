@@ -9,6 +9,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.cellview.client.DataGrid;
 import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewImpl;
@@ -35,11 +36,12 @@ class WystawianieFakturView extends ViewImpl implements WystawianieFakturPresent
 		initWidget(uiBinder.createAndBindUi(this));
 
 		TextColumn<Pozycja> nazwa = new TextColumn<Pozycja>() {
-
+				
 			@Override
 			public String getValue(Pozycja pozycja) {
-				return pozycja.getNazwa();
-			}
+				
+				return pozycja.getImie();
+		}
 		};
 		TextColumn<Pozycja> cenna = new TextColumn<Pozycja>() {
 
@@ -59,6 +61,7 @@ class WystawianieFakturView extends ViewImpl implements WystawianieFakturPresent
 		pozycje.addColumn(nazwa, "Nazwa");
 		pozycje.addColumn(cenna, "Cenna Jednostki");
 		pozycje.addColumn(ilosc, "Ilosci");
+	
 	}
 	
 	
@@ -114,20 +117,17 @@ class WystawianieFakturView extends ViewImpl implements WystawianieFakturPresent
 		pozycja2.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				PlaceRequest request = new PlaceRequest(NameTokens.pozycja);
+				PlaceRequest request = new PlaceRequest(NameTokens.email);
 				placeManager.revealPlace(request);
 			}
 		});
 		
 	}
 
-
-
 	@Override
 	public void wyswietlFakture() {
 		getPozycje().setWidth("400px");
-		getPozycje().setHeight("100px");		
+		getPozycje().setHeight("100px");
+		
 	}
-
-	
 }

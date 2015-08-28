@@ -1,0 +1,21 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+             <g:HTMLPanel>
+			<center><B>Wpisz dane</B></center>
+			<br></br>
+			<center><B>Nazwa:</B></center>
+			<center><g:TextBox ui:field="email" /></center>
+			<br></br>
+			<center><B>Cenna jednostki:</B></center>
+			<center><g:TextBox  ui:field="cennaJednostki"/></center>
+			<br></br>
+			<center><B>Ilosc:</B></center>
+			<center><g:TextBox ui:field="ilosc"/></center>
+			<br></br>
+			<center><B>Jednostki:</B></center>
+			<center><g:ListBox ui:field="jednostki"/></center>
+			<br></br>
+			<center><g:Button ui:field="zatwierdz" text="zatwierdz"/></center>
+		</g:HTMLPanel>
+</ui:UiBinder>
